@@ -872,18 +872,39 @@ line-height:10px;
   font-weight: bold;
 }
 
-.contact-form input,
+/* Input Fields Modern Styling */
+.contact-form input, 
 .contact-form textarea {
-  width: 100%;
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid #222;
-  background-color: #111; /* Dark background */
-  color: #fff;
-  font-size: 1rem;
-  outline: none;
-  font-family: inherit;
-  transition: all 0.3s ease;
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05); /* Glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus hone par Glow aur Border effect */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #3b82f6; /* Blue border on focus */
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    transform: scale(1.01); /* Thoda sa bada hoga */
+}
+
+/* Label styling ko thoda bold karein */
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #3b82f6; /* Blue labels */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* Jab input par click karein toh purple glow aaye */
