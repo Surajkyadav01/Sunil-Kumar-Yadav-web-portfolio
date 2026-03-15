@@ -934,3 +934,31 @@ line-height:10px;
   transform: translateY(-3px);
   box-shadow: 0 5px 20px rgba(168, 85, 247, 0.5); /* Hover par button glow karega */
 }
+/* Input Fields Modern Styling (Permanent Glow) */
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05); /* Glass effect */
+    border: 1px solid #00aaff;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    /* Ye line bina click kiye hamesha glow karwayegi */
+    animation: inputGlow 2s infinite alternate; 
+}
+
+/* Ye animation glow ko kam-zyada karta rahega */
+@keyframes inputGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 170, 255, 0.2);
+        border-color: #00aaff;
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(0, 170, 255, 0.6);
+        border-color: #00d4ff;
+    }
+}
+
