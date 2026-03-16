@@ -8,39 +8,47 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* --- POPUP MODAL & GLOW EFFECTS --- */
-:root { --glow: #3b82f6; }
+/* --- Fix for Email Card (Jo red circle kiya tha) --- */
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+.card {
+    min-width: 200px;
+    max-width: 300px;
+    padding: 15px;
+    word-wrap: break-word; /* Isse email dabba nahi phadegi */
+}
 
+/* --- Project Glowing Effect --- */
+.project {
+    background: #111;
+    border: 1px solid #3b82f6;
+    border-radius: 12px;
+    padding: 20px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+.project:hover {
+    box-shadow: 0 0 25px #3b82f6;
+    transform: translateY(-5px);
+}
+
+/* --- Popup Modal CSS --- */
 .modal {
-    display: none; position: fixed; z-index: 9999; padding-top: 50px; 
-    left: 0; top: 0; width: 100%; height: 100%; 
+    display: none; position: fixed; z-index: 10000; padding-top: 60px;
+    left: 0; top: 0; width: 100%; height: 100%;
     background-color: rgba(0,0,0,0.9); backdrop-filter: blur(8px);
 }
 .modal-content {
-    margin: auto; display: block; width: 85%; max-width: 800px;
-    border-radius: 15px; border: 3px solid var(--glow);
-    box-shadow: 0 0 30px var(--glow); animation: zoom 0.3s;
+    margin: auto; display: block; width: 90%; max-width: 750px;
+    border-radius: 10px; border: 2px solid #3b82f6;
 }
-@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
-.close-btn { position: absolute; top: 15px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
-
-/* Glowing Project Cards */
-.project {
-    background: #111; border: 1px solid #333; border-radius: 15px; padding: 20px;
-    transition: 0.4s; position: relative; overflow: hidden;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); /* Constant subtle glow */
-}
-.project:hover {
-    transform: translateY(-10px);
-    border-color: var(--glow);
-    box-shadow: 0 0 30px var(--glow); /* Strong glow on hover */
-}
-
-/* Fix Email Overflow (Jo tumne red circle kiya tha) */
-.card p {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    font-size: 0.9rem;
+.close-btn {
+    position: absolute; top: 20px; right: 30px; color: white;
+    font-size: 40px; font-weight: bold; cursor: pointer;
 }
 </style>
 </head>
@@ -62,25 +70,25 @@
     <div class="theme" onclick="toggleTheme()">☀️</div>
 </nav>
 
-<section id="home" class="home">
+<section id="home" class="home" style="text-align: center; padding: 100px 20px;">
     <img src="https://image2url.com/r2/default/images/1772735325942-fe87fa88-c681-4c4a-8fe0-a07629e3f2ed.webp" class="profile-img">
     <h1>Hi, I'm <span class="name">Sunil Kumar Yadav</span></h1>
     <p class="title">Frontend Developer | Tech Explorer | Online Services</p>
     <div class="info">
         <div class="card">📍 <b>Location</b><p>Bhadohi, India</p></div>
         <div class="card">💼 <b>Expertise</b><p>Frontend Developer</p></div>
-        <div class="card">📞 <b>Contact</b><p>ksurajyadav93@gmail.com</p></div>
+        <div class="card">📞 <b>Contact</b><p style="font-size: 0.85rem;">ksurajyadav93@gmail.com</p></div>
     </div>
 </section>
 
-<section id="about" class="about">
+<section id="about" class="about" style="padding: 50px 20px; text-align: center;">
     <h2>About Me</h2>
-    <p>Hi, I’m Sunil Kumar Yadav, a BCA student and an aspiring tech professional with a strong interest in technology. I have knowledge of programming languages like C, C++, HTML, CSS, and JavaScript.</p>
+    <p>Hi, I’m Sunil Kumar Yadav, a BCA student and an aspiring tech professional with a strong interest in technology and digital creativity. I enjoy solving problems and learning new tools.</p>
 </section>
 
 <section id="skills" class="skills">
-    <h2>My Skills</h2>
-    <div class="skills-box">
+    <h2 style="text-align:center;">My Skills</h2>
+    <div class="skills-box" style="max-width: 600px; margin: auto;">
         <div class="skill-bars">
             <div class="bar"><p>C</p><div class="progress"><span style="width:70%">70%</span></div></div>
             <div class="bar"><p>C++</p><div class="progress"><span style="width:65%">65%</span></div></div>
@@ -95,14 +103,14 @@
 <section id="certificates" class="certificates" style="padding: 50px 20px; text-align: center;">
     <h2 style="text-shadow: 0 0 10px #3b82f6;">Certificates</h2>
     <div class="cert-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-        <img src="https://image2url.com/r2/default/images/1773668212514-4d8e51c5-e3e6-4c07-a6ab-c5723da33c9e.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border:2px solid #3b82f6; border-radius:10px;">
-        <img src="https://image2url.com/r2/default/images/1773668240168-0d236bca-1621-42b2-be63-4a66790ea8ba.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border:2px solid #3b82f6; border-radius:10px;">
-        <img src="https://image2url.com/r2/default/images/1773213025674-97428c2a-d54b-4288-a2ab-499673d1aaf0.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border:2px solid #3b82f6; border-radius:10px;">
-        <img src="https://image2url.com/r2/default/images/1773213095375-dd08ce35-ecea-409c-b633-1812de5b53b9.png" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border:2px solid #3b82f6; border-radius:10px;">
-        <img src="https://image2url.com/r2/default/images/1773213140599-42777cd8-f690-4e6a-afdd-bd61cb80cdd7.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border:2px solid #3b82f6; border-radius:10px;">
-        <img src="https://image2url.com/r2/default/images/1773213173478-a65f18a9-6e28-41fe-89fd-052127ff3f48.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border:2px solid #3b82f6; border-radius:10px;">
-        <img src="https://image2url.com/r2/default/images/1773572320625-a6f24c80-92cb-413b-800d-499187e76a36.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border:2px solid #3b82f6; border-radius:10px;">
-        <img src="https://image2url.com/r2/default/images/1773573257297-ce1bbe5a-39b3-4bae-bce2-370d36814ccb.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border:2px solid #3b82f6; border-radius:10px;">
+        <img src="https://image2url.com/r2/default/images/1773668212514-4d8e51c5-e3e6-4c07-a6ab-c5723da33c9e.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border-radius:10px; border:2px solid #3b82f6;">
+        <img src="https://image2url.com/r2/default/images/1773668240168-0d236bca-1621-42b2-be63-4a66790ea8ba.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border-radius:10px; border:2px solid #3b82f6;">
+        <img src="https://image2url.com/r2/default/images/1773213025674-97428c2a-d54b-4288-a2ab-499673d1aaf0.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border-radius:10px; border:2px solid #3b82f6;">
+        <img src="https://image2url.com/r2/default/images/1773213095375-dd08ce35-ecea-409c-b633-1812de5b53b9.png" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border-radius:10px; border:2px solid #3b82f6;">
+        <img src="https://image2url.com/r2/default/images/1773213140599-42777cd8-f690-4e6a-afdd-bd61cb80cdd7.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border-radius:10px; border:2px solid #3b82f6;">
+        <img src="https://image2url.com/r2/default/images/1773213173478-a65f18a9-6e28-41fe-89fd-052127ff3f48.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border-radius:10px; border:2px solid #3b82f6;">
+        <img src="https://image2url.com/r2/default/images/1773572320625-a6f24c80-92cb-413b-800d-499187e76a36.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border-radius:10px; border:2px solid #3b82f6;">
+        <img src="https://image2url.com/r2/default/images/1773573257297-ce1bbe5a-39b3-4bae-bce2-370d36814ccb.jpg" alt="Cert" style="width:100%; max-width:400px; cursor:pointer; border-radius:10px; border:2px solid #3b82f6;">
     </div>
 </section>
 
@@ -111,43 +119,37 @@
     <img class="modal-content" id="fullCertImg">
 </div>
 
-<section id="projects" class="projects">
+<section id="projects" class="projects" style="padding: 50px 20px; text-align: center;">
     <h2>My Projects</h2>
-    <div class="project-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px;">
+    <div class="project-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: auto;">
         <div class="project"><h3>Calculator</h3><p>Built with HTML, CSS, JS.</p></div>
-        <div class="project"><h3>Weather App</h3><p>Live Weather using API.</p></div>
-        <div class="project"><h3>SecureX Tool</h3><p>Secure Password Generator.</p></div>
-        <div class="project"><h3>Tic Tac Toe</h3><p>JavaScript Game.</p></div>
-        <div class="project"><h3>Photography</h3><p>Sky Studio Web Project.</p></div>
-        <div class="project"><h3>CNC Works</h3><p>Engineering Works Website.</p></div>
+        <div class="project"><h3>Weather App</h3><p>Live Weather API.</p></div>
+        <div class="project"><h3>SecureX Tool</h3><p>Password Generator.</p></div>
+        <div class="project"><h3>Tic Tac Toe</h3><p>JS Game.</p></div>
+        <div class="project"><h3>Photography</h3><p>Sky Studio Project.</p></div>
+        <div class="project"><h3>CNC Works</h3><p>CNC Service Web.</p></div>
     </div>
 </section>
 
-<section id="contact" class="contact" style="text-align: center; padding: 50px 20px;">
+<section id="contact" class="contact" style="padding: 50px 20px; text-align: center;">
     <h2>Contact Me</h2>
-    <div class="contact-form-container">
-        <p>📧 Email: ksurajyadav93@gmail.com</p>
-        <p>📱 Phone: 6393869405</p>
-        <form class="contact-form" onsubmit="sendToWhatsApp(event)">
-            <input type="text" id="waName" placeholder="Your Name" required style="width:90%; padding:10px; margin:10px 0;">
-            <textarea id="waMessage" rows="4" placeholder="Message" required style="width:90%; padding:10px;"></textarea>
-            <button type="submit" style="background:#3b82f6; color:white; padding:10px 25px; border:none; border-radius:5px; cursor:pointer;">Send</button>
-        </form>
-    </div>
+    <p>📧 Email: ksurajyadav93@gmail.com</p>
+    <a class="whatsapp-btn" href="https://wa.me/916393869405" target="_blank" style="background:#25d366; color:white; padding:10px 20px; border-radius:8px; text-decoration:none;">WhatsApp Us</a>
 </section>
 
-<div class="visitor-counter" style="text-align: center; padding: 20px;">
-    <h2>Visitors Counter</h2>
-    <p>Total Visitors: <span id="visitorCount" style="color:#3b82f6; font-weight:bold;">1</span></p>
+<div style="text-align: center; padding: 20px; background: #000;">
+    <p style="border: 1px solid #3b82f6; display: inline-block; padding: 10px 20px; border-radius: 10px;">
+        Visitors: <span id="visitorCount" style="color:#3b82f6; font-weight:bold;">0</span>
+    </p>
 </div>
 
-<footer>© 2026 Sunil Kumar Yadav | All Rights Reserved</footer>
+<footer style="text-align: center; padding: 20px;">© 2026 Sunil Kumar Yadav</footer>
 
 <script src="./script.js"></script>
 <script>
 function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
 
-// POPUP SCRIPT
+// Modal Popup Logic
 var modal = document.getElementById("certModal");
 var modalImg = document.getElementById("fullCertImg");
 document.querySelectorAll('#certificates img').forEach(img => {
@@ -156,12 +158,11 @@ document.querySelectorAll('#certificates img').forEach(img => {
 function closeModal() { modal.style.display = "none"; }
 window.onclick = function(e) { if (e.target == modal) closeModal(); }
 
-// VISITOR COUNTER SCRIPT
-let count = localStorage.getItem('page_view');
-if (count === null) { count = 1; } else { count = parseInt(count) + 1; }
-localStorage.setItem('page_view', count);
-document.getElementById('visitorCount').innerHTML = count;
+// Visitor Counter Logic
+let count = localStorage.getItem('vCount') || 0;
+count = parseInt(count) + 1;
+localStorage.setItem('vCount', count);
+document.getElementById('visitorCount').innerText = count;
 </script>
-
 </body>
 </html>
