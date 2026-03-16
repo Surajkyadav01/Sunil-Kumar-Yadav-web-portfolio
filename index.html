@@ -10,43 +10,65 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* --- POPUP MODAL CSS --- */
+/* --- CREATIVE EFFECTS & MODAL CSS --- */
+:root {
+    --glow-color: #3b82f6;
+}
+
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 9999; 
-    padding-top: 50px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(0,0,0,0.9); 
-    backdrop-filter: blur(5px);
+    display: none; position: fixed; z-index: 9999; padding-top: 50px; 
+    left: 0; top: 0; width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.9); backdrop-filter: blur(8px);
 }
 
 .modal-content {
-    margin: auto;
-    display: block;
-    width: 85%;
-    max-width: 800px;
-    border-radius: 10px;
-    border: 3px solid #3b82f6;
-    animation: zoom 0.3s;
+    margin: auto; display: block; width: 85%; max-width: 800px;
+    border-radius: 15px; border: 3px solid var(--glow-color);
+    box-shadow: 0 0 30px var(--glow-color); animation: zoom 0.3s;
 }
 
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
+@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
 
 .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
+    position: absolute; top: 15px; right: 35px; color: #fff;
+    font-size: 40px; font-weight: bold; cursor: pointer;
+}
+
+/* Glowing Project Cards */
+.project {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+    transition: 0.4s;
+    position: relative;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.project:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--glow-color);
+    box-shadow: 0 0 25px var(--glow-color);
     cursor: pointer;
+}
+
+/* Certificates Hover */
+.cert-container img {
+    transition: 0.4s;
+}
+
+.cert-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--glow-color);
+    filter: brightness(1.1);
+}
+
+/* Fixed Contact Form Styling */
+.contact-form-container {
+    margin-top: 30px;
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 20px;
 }
 </style>
 </head>
@@ -117,12 +139,14 @@ Hi, I’m Sunil Kumar Yadav, a BCA student and an aspiring tech professional wit
 <section id="certificates" class="certificates" style="padding: 50px 20px; text-align: center;">
 <h2 style="font-size: 2.5rem; color: #fff; text-transform: uppercase; margin-bottom: 30px; text-shadow: 0 0 10px #3b82f6;">Certificates</h2>
 <div class="cert-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-    <img src="https://image2url.com/r2/default/images/1773668212514-4d8e51c5-e3e6-4c07-a6ab-c5723da33c9e.jpg" alt="Tata Certificate" style="width: 100%; max-width: 500px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
-    <img src="https://image2url.com/r2/default/images/1773668240168-0d236bca-1621-42b2-be63-4a66790ea8ba.jpg" alt="Python Certificate" style="width: 100%; max-width: 500px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
-    <img src="https://image2url.com/r2/default/images/1773213025674-97428c2a-d54b-4288-a2ab-499673d1aaf0.jpg" alt="Cert 1" style="width: 100%; max-width: 500px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
-    <img src="https://image2url.com/r2/default/images/1773213095375-dd08ce35-ecea-409c-b633-1812de5b53b9.png" alt="Cert 2" style="width: 100%; max-width: 500px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
-    <img src="https://image2url.com/r2/default/images/1773213140599-42777cd8-f690-4e6a-afdd-bd61cb80cdd7.jpg" alt="Cert 3" style="width: 100%; max-width: 500px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
-    <img src="https://image2url.com/r2/default/images/1773573257297-ce1bbe5a-39b3-4bae-bce2-370d36814ccb.jpg" alt="Cert 8" style="width: 100%; max-width: 500px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
+    <img src="https://image2url.com/r2/default/images/1773668212514-4d8e51c5-e3e6-4c07-a6ab-c5723da33c9e.jpg" alt="Tata" style="width: 100%; max-width: 450px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
+    <img src="https://image2url.com/r2/default/images/1773668240168-0d236bca-1621-42b2-be63-4a66790ea8ba.jpg" alt="Python" style="width: 100%; max-width: 450px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
+    <img src="https://image2url.com/r2/default/images/1773213025674-97428c2a-d54b-4288-a2ab-499673d1aaf0.jpg" alt="Cert1" style="width: 100%; max-width: 450px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
+    <img src="https://image2url.com/r2/default/images/1773213095375-dd08ce35-ecea-409c-b633-1812de5b53b9.png" alt="Cert2" style="width: 100%; max-width: 450px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
+    <img src="https://image2url.com/r2/default/images/1773213140599-42777cd8-f690-4e6a-afdd-bd61cb80cdd7.jpg" alt="Cert3" style="width: 100%; max-width: 450px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
+    <img src="https://image2url.com/r2/default/images/1773213173478-a65f18a9-6e28-41fe-89fd-052127ff3f48.jpg" alt="Cert4" style="width: 100%; max-width: 450px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
+    <img src="https://image2url.com/r2/default/images/1773572320625-a6f24c80-92cb-413b-800d-499187e76a36.jpg" alt="Cert5" style="width: 100%; max-width: 450px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
+    <img src="https://image2url.com/r2/default/images/1773573257297-ce1bbe5a-39b3-4bae-bce2-370d36814ccb.jpg" alt="Cert6" style="width: 100%; max-width: 450px; cursor: pointer; border-radius: 10px; border: 2px solid #3b82f6;">
 </div>
 </section>
 
@@ -133,7 +157,7 @@ Hi, I’m Sunil Kumar Yadav, a BCA student and an aspiring tech professional wit
 
 <section id="projects" class="projects">
 <h2>My Projects</h2>
-<div class="project-box">
+<div class="project-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px;">
 <div class="project"><h3>Calculator</h3><p>Simple calculator built using HTML, CSS and JS.</p></div>
 <div class="project"><h3>Weather App</h3><p>Weather app using API.</p></div>
 <div class="project"><h3>SecureX Tool</h3><p>Online tool for generating secure passwords.</p></div>
@@ -145,39 +169,39 @@ Hi, I’m Sunil Kumar Yadav, a BCA student and an aspiring tech professional wit
 
 <section class="hobbies">
 <h2>Hobbies</h2>
-<div class="hobby">🎧 Listening to Music</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+<div class="hobby">🎧 Music</div>
 <div class="hobby">📸 Photography</div>
 <div class="hobby">🎮 Gaming</div>
-<div class="hobby">🏀 Sports & Fitness</div>
+<div class="hobby">🏀 Sports</div>
+</div>
 </section>
 
-<div class="resume-section">
+<div class="resume-section" style="text-align: center; padding: 40px;">
 <h2 class="resume-heading">My <span class="highlight">Resume</span></h2>
-<a href="https://drive.google.com/file/d/1loX19eYHi1MNrEiRjRjXGeZmolNHP1w2/view?usp=drivesdk" target="_blank" class="download-btn">
+<a href="https://drive.google.com/file/d/1loX19eYHi1MNrEiRjRjXGeZmolNHP1w2/view?usp=drivesdk" target="_blank" class="download-btn" style="background: #3b82f6; padding: 15px 30px; border-radius: 50px; color: white; text-decoration: none; box-shadow: 0 0 15px #3b82f6;">
 <i class="fas fa-download"></i> Download Resume
 </a>
 </div>
 
-<section id="contact" class="contact">
+<section id="contact" class="contact" style="text-align: center; padding: 50px 20px;">
 <h2>Contact Me</h2>
-<p>📧 Email: ksurajyadav93@gmail.com</p>
-<p>📱 Phone: 6393869405</p>
-<a class="whatsapp-btn" href="https://wa.me/916393869405" target="_blank">Chat on WhatsApp</a>
+<div style="margin-bottom: 20px;">
+<p style="font-size: 1.2rem;">📧 Email: <a href="mailto:ksurajyadav93@gmail.com" style="color: #3b82f6;">ksurajyadav93@gmail.com</a></p>
+<p style="font-size: 1.2rem;">📱 Phone: 6393869405</p>
+</div>
+<a class="whatsapp-btn" href="https://wa.me/916393869405" target="_blank" style="background: #25d366; padding: 12px 25px; border-radius: 10px; color: white; text-decoration: none; display: inline-block;">
+Chat on WhatsApp <i class="fab fa-whatsapp"></i>
+</a>
 <div class="contact-form-container">
 <form class="contact-form" onsubmit="sendToWhatsApp(event)">
-<div class="input-group"><label>Name</label><input type="text" id="waName" placeholder="Your Name" required></div>
-<div class="input-group"><label>Email</label><input type="email" id="waEmail" placeholder="Your Email" required></div>
-<div class="input-group"><label>Subject</label><input type="text" id="waSubject" placeholder="Project Discussion" required></div>
-<div class="input-group"><label>Message</label><textarea id="waMessage" rows="4" placeholder="Tell me about your project..." required></textarea></div>
-<button type="submit" class="send-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+<div class="input-group"><label>Name</label><input type="text" id="waName" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-top: 5px;"></div>
+<div class="input-group"><label>Email</label><input type="email" id="waEmail" placeholder="Your Email" required style="width: 100%; padding: 10px; margin-top: 5px;"></div>
+<div class="input-group"><label>Message</label><textarea id="waMessage" rows="4" placeholder="Your Message..." required style="width: 100%; padding: 10px; margin-top: 5px;"></textarea></div>
+<button type="submit" class="send-btn" style="margin-top: 20px; background: #3b82f6; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Send Message</button>
 </form>
 </div>
 </section>
-
-<div class="visitor-counter">
-<h2>Visitors counter</h2>
-<p>Visitors: <span id="visitorCount">1</span></p>
-</div>
 
 <footer>© 2026 Sunil Kumar Yadav | All Rights Reserved</footer>
 
@@ -188,7 +212,6 @@ function toggleMenu() {
     menu.classList.toggle('active');
 }
 
-// POPUP JAVASCRIPT FIXED
 var modal = document.getElementById("certModal");
 var modalImg = document.getElementById("fullCertImg");
 
@@ -199,15 +222,8 @@ document.querySelectorAll('#certificates img').forEach(img => {
     }
 });
 
-function closeModal() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+function closeModal() { modal.style.display = "none"; }
+window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
 </script>
 
 </body>
