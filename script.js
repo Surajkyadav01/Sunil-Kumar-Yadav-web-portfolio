@@ -1,83 +1,195 @@
-// 1️⃣ Theme toggle (Sun/Moon icon ke sath update kiya gaya)
+// Certificate Popup Logic
+
+function openModal(src) {
+
+  document.getElementById("certModal").style.display = "block";
+
+  document.getElementById("fullCertImg").src = src;
+
+}
+
+// 1️⃣ Theme toggle
+
 function toggleTheme() {
+
   document.body.classList.toggle("light");
-  
+
   let themeBtn = document.querySelector(".theme");
-  // Agar light mode on hai toh Moon dikhaye, nahi toh Sun dikhaye
-  if(document.body.classList.contains("light")) {
+
+  if (document.body.classList.contains("light")) {
+
     themeBtn.innerText = "☀️";
+
   } else {
+
     themeBtn.innerText = "🌙";
+
   }
+
 }
 
 // 2️⃣ Animate skill bars on scroll
+
 const skillSpans = document.querySelectorAll('.progress span');
+
 window.addEventListener('scroll', () => {
+
   const skillsSection = document.querySelector('.skills');
-  if(skillsSection) {
+
+  if (skillsSection) {
+
     const sectionTop = skillsSection.getBoundingClientRect().top;
+
     const screenHeight = window.innerHeight;
+
     if (sectionTop < screenHeight - 100) {
+
       skillSpans.forEach(span => {
-        span.style.width = span.getAttribute('style');
+
+        span.style.width = span.getAttribute('data-width');
+
       });
+
     }
+
   }
+
 });
 
-// 3️⃣ Visitor counter (continuous increment)
-function VisitorCounter() {
-  const counter = document.getElementById('visitorCount');
-  if(!counter) return;
-  let current = 100; // starting point
-  counter.innerText = current;
+// --- Live Visitor Counter Logic (1 se 100 tak fir restart) ---
+
+let count = 1;
+
+function startLiveCounter() {
+
+  const counterDisplay = document.getElementById('visitorCount');
+
+  if (!counterDisplay) return;
+
+  counterDisplay.innerText = count;
+
   setInterval(() => {
-    current += Math.floor(Math.random() * 3) + 1; // 1-2-3 increment
-    counter.innerText = current;
-  }, 2000);
+
+    count++;
+
+    if (count > 100) {
+
+      count = 1; // 100 ke baad fir se 1
+
+    }
+
+    counterDisplay.innerText = count;
+
+  }, 2000); // har 2 second me badhega
+
 }
 
-// Fake Signup Form Logic (Aapka purana code theek karke rakha hai)
-const fakeForm = document.getElementById('fakeSignupForm');
-if(fakeForm) {
-  fakeForm.addEventListener('submit', function(e) {
+// Signup Form Logic
+
+const Form = document.getElementById('SignupForm');
+
+if (Form) {
+
+  Form.addEventListener('submit', function (e) {
+
     e.preventDefault();
+
     const email = this.email.value;
+
     const status = document.getElementById('signupStatus');
-    if(status) status.innerText = `🎉 Account created for ${email} (fake demo)`;
-    this.reset(); 
+
+    if (status) {
+
+      status.innerText = `🎉 Account created for ${email} (demo)`;
+
+    }
+
+    this.reset();
+
   });
+
 }
 
-// **Run JS after HTML is loaded** (Visitor counter start karne ke liye)
+// Run JS after HTML loads
+
 window.addEventListener('DOMContentLoaded', () => {
-  VisitorCounter(); // Naam theek kar diya gaya hai
+
+  // Visitor Counter start
+
+  startLiveCounter();
+
+  // --- Modal Popup Logic ---
+
+  const modal = document.getElementById("certModal");
+
+  const modalImg = document.getElementById("fullCertImg");
+
+  const closeBtn = document.querySelector(".close-btn");
+
+  document.querySelectorAll('#certificates img').forEach(img => {
+
+    img.style.cursor = "pointer";
+
+    img.onclick = function () {
+
+      modal.style.display = "block";
+
+      modalImg.src = this.src;
+
+    }
+
+  });
+
+  if (closeBtn) {
+
+    closeBtn.onclick = function () {
+
+      modal.style.display = "none";
+
+    }
+
+  }
+
+  window.onclick = function (event) {
+
+    if (event.target == modal) {
+
+      modal.style.display = "none";
+
+    }
+
+  }
+
 });
 
 // --- Send Message to WhatsApp Logic ---
+
 function sendToWhatsApp(event) {
-  event.preventDefault(); // Page ko refresh hone se rokenge
-  
-  // User ne jo form me bhara hai, use nikalna
+
+  event.preventDefault();
+
   let name = document.getElementById('waName').value;
+
   let email = document.getElementById('waEmail').value;
+
   let subject = document.getElementById('waSubject').value;
+
   let message = document.getElementById('waMessage').value;
-  
-  // Ek mast sa WhatsApp message format banana
+
   let textMessage = "Hello Sunil,\n\n*New Portfolio Message* 🚀\n\n";
+
   textMessage += "*Name:* " + name + "\n";
+
   textMessage += "*Email:* " + email + "\n";
+
   textMessage += "*Subject:* " + subject + "\n";
+
   textMessage += "*Message:* " + message;
-  
-  // Text ko URL format me badalna
+
   let encodedMessage = encodeURIComponent(textMessage);
-  
-  // Aapka WhatsApp number yahan set kiya gaya hai (91 + 6393869405)
+
   let whatsappURL = "https://wa.me/916393869405?text=" + encodedMessage;
-  
-  // Naye tab me WhatsApp open karna
-  window.open(whatsappURL, '_blank'); 
-}
+
+  window.open(whatsappURL, '_blank');
+
+}  
