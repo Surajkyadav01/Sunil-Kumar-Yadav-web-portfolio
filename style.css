@@ -1085,3 +1085,11 @@ body { background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%
   width: 80%;
   max-width: 700px;
 }
+.project a {
+  color: #00bfff;
+  text-decoration: none;
+}
+
+.project a:hover {
+  text-decoration: underline;
+}
