@@ -193,3 +193,59 @@ function sendToWhatsApp(event) {
   window.open(whatsappURL, '_blank');
 
 }  
+
+// --- NEW: Aquarium (फिश टैंक) एनीमेशन लॉजिक ---
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('toolsAquarium');
+    if (!container) return; 
+    const logos = container.querySelectorAll('.tool-logo');
+
+    // एनीमेशन की गति
+    const speed = 1.2; 
+
+    logos.forEach(logo => {
+        // शुरुआती स्थिति
+        let state = {
+            x: Math.random() * (container.clientWidth - 60),
+            y: Math.random() * (container.clientHeight - 60),
+            dx: (Math.random() > 0.5 ? 1 : -1) * speed, 
+            dy: (Math.random() > 0.5 ? 1 : -1) * speed, 
+            width: 55, 
+            height: 55
+        };
+
+        function animate() {
+            if (!container.clientWidth) {
+                requestAnimationFrame(animate);
+                return;
+            }
+
+            let maxX = container.clientWidth - state.width;
+            let maxY = container.clientHeight - state.height;
+
+            // दीवार से टकराकर मुड़ने का एकदम सही लॉजिक (<= और >=)
+            if (state.x <= 0 || state.x >= maxX) {
+                state.dx = -state.dx; 
+            }
+            if (state.y <= 0 || state.y >= maxY) {
+                state.dy = -state.dy; 
+            }
+
+            state.x += state.dx;
+            state.y += state.dy;
+
+            // सेफ्टी लॉक (ताकि बॉक्स के बाहर न जाएं और न ही कोनों में फंसें)
+            if(state.x < 0) state.x = 0;
+            if(state.y < 0) state.y = 0;
+            if(state.x > maxX) state.x = maxX;
+            if(state.y > maxY) state.y = maxY;
+
+            logo.style.left = `${state.x}px`;
+            logo.style.top = `${state.y}px`;
+
+            requestAnimationFrame(animate); 
+        }
+
+        animate(); 
+    });
+});
