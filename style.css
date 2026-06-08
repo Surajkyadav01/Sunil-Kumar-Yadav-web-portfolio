@@ -1014,8 +1014,6 @@ body { background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%
 }
 
 
-
-
 /* Red heading (Visitors counter) ko bada karne ke liye */
 .visitor-counter h2 {
   font-size: 1.8rem !important; /* Is value ko badhao jitna bada chahiye */
@@ -1092,4 +1090,37 @@ body { background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%
 
 .project a:hover {
   text-decoration: underline;
+}
+
+/* --- FIXED TOOLS AQUARIUM ANIMATION BOX --- */
+.tools-aquarium-box {
+  position: relative;
+  width: 100%;
+  height: 200px; /* यह साइज़ आपके बाकी बॉक्सेस से एकदम मैच करेगा */
+  background: transparent; 
+  border: none;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.tool-logo {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.95); 
+  border: 2px solid #00e5ff; /* स्यान कलर का शाइनिंग बॉर्डर */
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  user-select: none;
+  padding: 8px; 
+  z-index: 1;
+}
+
+.tool-logo:hover {
+  transform: scale(1.25) translateZ(5px) !important;
+  box-shadow: 0 0 20px #00e5ff;
+  z-index: 10;
 }
